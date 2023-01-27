@@ -24,5 +24,9 @@ namespace Business.Constants
         public static string TransactionAdded = "Satış işlemi Gerçekleşti";
         public static string TransactionDeleted = "Satış işlemi iptal edildi";
         public static string TransactionUpdated = "Satış işlemi güncellendi";
+
+        public static string CategoryAdded = "Kategori Eklendi";
+        public static string CategoryDeleted = "Kategori Silindi";
+        public static string CategoryUpdated = "Kategori Güncellendi";
     }
 }
