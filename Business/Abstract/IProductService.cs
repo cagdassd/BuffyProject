@@ -16,5 +16,7 @@ namespace Business.Abstract
         IResult Delete(Product product);
         IDataResult<List<Product>> GetByUnitPrice(int min,int max);
         IDataResult<List<ProductDetailDto>> GetProductDetails();
+
+        
     }
 }
