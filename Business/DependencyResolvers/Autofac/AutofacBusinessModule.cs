@@ -29,7 +29,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
 
-            //
+            //Validation aspecti devreye girsin diye alt kısmı girdik
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
