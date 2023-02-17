@@ -11,22 +11,12 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             
-            ayıcık();
-            ayıcık();
+            
 
 
-            void Program ()
-            {
-                Console.WriteLine("büşra");
-                Console.WriteLine("çağdaş");
-            }
+            
 
-            void ayıcık()
-            {
-                Console.WriteLine("karıcık");
-                Console.WriteLine("babacık");
-                Console.WriteLine("cicikuş");
-            }
+            
         }
 
         
