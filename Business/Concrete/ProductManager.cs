@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Business;
 using Core.CrossCuttingConcerns.Validation;
@@ -32,8 +33,9 @@ namespace Business.Concrete
 
 
 
-        [SecuredOperation("admin,user")]
-        [ValidationAspect(typeof(ProductValidator))]
+        //[SecuredOperation("admin,user,product.add")]
+        // [ValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId), CheckIfProductNameExists(product.ProductName),CheckIfCategoryLimitExceded());
@@ -54,8 +56,8 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductDeleted);
         }
 
-        
 
+        [CacheAspect]
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour==25)
@@ -66,6 +68,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
         }
 
+        [CacheAspect]
         public IDataResult<Product> GetById(int id)
         {
             return new SuccessDataResult<Product>(_productDal.Get(p=>p.ProductId == id));
