@@ -33,8 +33,8 @@ namespace Business.Concrete
 
 
 
-        //[SecuredOperation("admin,user,product.add")]
-        // [ValidationAspect(typeof(ProductValidator))]
+        [SecuredOperation("admin,user,product.add")]
+        [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
@@ -94,6 +94,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductUpdated);
         }
 
+        public IDataResult<List<Product>> GetAllByCategoryId(int categoryId)
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p=>p.CategoryId==categoryId));
+        }
+
         //iş Kodları
 
         private IResult CheckIfProductCountOfCategoryCorrect(int categoryId)
@@ -128,5 +133,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        
     }
 }
