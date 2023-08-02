@@ -14,5 +14,8 @@ namespace Entities.Concrete
         public decimal UnitPrice { get; set; }
         public string Description { get; set; }
         public int BrandId{ get; set; }
+
+
+        public int QQQQQQQQQQQQQQQQQQQQQQQQQQQMyProperty { get; set; }
     }
 }
